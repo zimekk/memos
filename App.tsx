@@ -12,8 +12,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StaticMap } from './Components';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StaticMap } from "./Components";
 
 function HomeScreen({ navigation }) {
   return (
@@ -162,7 +162,7 @@ function CameraScreen() {
 function MapScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <StaticMap/>
+      <StaticMap />
     </View>
   );
 }
@@ -183,28 +183,28 @@ function makeIconRender(name) {
 
 const Drawer = createDrawerNavigator();
 
-        function DrawerNavigator() {
-          return (
-            <Drawer.Navigator>
-              <Drawer.Screen name="Home" component={HomeScreen} />
-                 <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-            </Drawer.Navigator>
-        );
-        }
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    </Drawer.Navigator>
+  );
+}
 
-        const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
-        function StackNavigator() {
+function StackNavigator() {
   return (
     <Stack.Navigator>
-        <Stack.Screen
-          name="Drawer"
-          component={DrawerNavigator}
-          options={{ headerShown: false }}
-        />
-         <Stack.Screen name="Details" component={DetailsScreen} />
-  </Stack.Navigator>
-);
+      <Stack.Screen
+        name="Drawer"
+        component={DrawerNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+  );
 }
 
 const Tab = createBottomTabNavigator();
@@ -216,9 +216,10 @@ export default function App() {
         <Tab.Screen
           name="Stack"
           component={StackNavigator}
-          options={{ 
+          options={{
             headerShown: false,
-            tabBarIcon: makeIconRender("home") }}
+            tabBarIcon: makeIconRender("home"),
+          }}
         />
         <Tab.Screen
           name="Camera"

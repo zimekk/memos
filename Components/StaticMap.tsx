@@ -1,5 +1,5 @@
-import {View} from 'react-native';
+import { View } from "react-native";
 
 export function StaticMap() {
-return (<View>StaticMap!</View>)
-};
+  return <View>StaticMap!</View>;
+}

@@ -1,1 +1,1 @@
-export * from './StaticMap'
+export * from "./StaticMap";
