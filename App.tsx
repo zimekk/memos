@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StaticMap } from './Components';
 
 function HomeScreen({ navigation }) {
   return (
@@ -158,6 +159,14 @@ function CameraScreen() {
   );
 }
 
+function MapScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <StaticMap/>
+    </View>
+  );
+}
+
 function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -215,6 +224,11 @@ export default function App() {
           name="Camera"
           component={CameraScreen}
           options={{ tabBarIcon: makeIconRender("camera") }}
+        />
+        <Tab.Screen
+          name="Map"
+          component={MapScreen}
+          options={{ tabBarIcon: makeIconRender("map") }}
         />
         <Tab.Screen
           name="Settings"
