@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import {
   Button,
   ImageBackground,
+  SectionList,
   Text,
   TouchableOpacity,
   View,
@@ -169,6 +170,53 @@ function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Settings!</Text>
+      <SectionList
+        renderItem={({ item }) => (
+          <View
+            style={{
+              backgroundColor: "#f9c2ff",
+              padding: 20,
+              marginVertical: 8,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 24,
+              }}
+            >
+              {item}
+            </Text>
+          </View>
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text
+            style={{
+              fontSize: 32,
+              backgroundColor: "#fff",
+            }}
+          >
+            {title}
+          </Text>
+        )}
+        sections={[
+          {
+            title: "Main dishes",
+            data: ["Pizza", "Burger", "Risotto"],
+          },
+          {
+            title: "Sides",
+            data: ["French Fries", "Onion Rings", "Fried Shrimps"],
+          },
+          {
+            title: "Drinks",
+            data: ["Water", "Coke", "Beer"],
+          },
+          {
+            title: "Desserts",
+            data: ["Cheese Cake", "Ice Cream"],
+          },
+        ]}
+      />
     </View>
   );
 }
