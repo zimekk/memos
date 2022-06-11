@@ -1,4 +1,4 @@
-import { Camera } from "expo-camera";
+import { Camera, CameraType } from "expo-camera";
 import { useRef, useState } from "react";
 import {
   Button,
@@ -57,7 +57,7 @@ function NotificationsScreen({ navigation }) {
 
 function CameraScreen() {
   const [status, requestPermission] = Camera.useCameraPermissions();
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(CameraType.back);
   const [lastPhotoURI, setLastPhotoURI] = useState(null);
   const cameraRef = useRef(null);
 
@@ -127,9 +127,7 @@ function CameraScreen() {
           }}
           onPress={() => {
             setType(
-              type === Camera.Constants.Type.back
-                ? Camera.Constants.Type.front
-                : Camera.Constants.Type.back
+              type === CameraType.back ? CameraType.front : CameraType.back
             );
           }}
         >
