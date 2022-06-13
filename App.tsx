@@ -14,7 +14,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StaticMap } from "./Components";
+import { MyModal, StaticMap } from "./Components";
 import { Context, ContextProvider } from "./Context";
 import { OnboardingScreen } from "./Screens";
 
@@ -34,6 +34,7 @@ function HomeScreen({ navigation }) {
         title="Go to notifications"
       />
       <Button onPress={() => setLaunch(true)} title="Go to onboarding" />
+      <MyModal />
     </View>
   );
 }

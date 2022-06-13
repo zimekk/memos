@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export function StaticMap() {
+export function MyModal() {
   return (
     <View>
-      <Text>StaticMap!</Text>
+      <Text>MyModal!</Text>
     </View>
   );
 }
