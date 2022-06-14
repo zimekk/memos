@@ -14,9 +14,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { MyModal, StaticMap } from "./Components";
-import { Context, ContextProvider } from "./Context";
-import { OnboardingScreen } from "./Screens";
+import { MyModal, StaticMap } from "../components";
+import { Context } from "../Context";
+import { OnboardingScreen } from "../screens";
 
 function HomeScreen({ navigation }) {
   const { setLaunch } = useContext(Context);
@@ -261,47 +261,44 @@ function StackNavigator() {
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
-  const [launch, setLaunch] = useState(true);
+export default function Navigation({ launch }) {
   return (
-    <ContextProvider value={{ setLaunch }}>
-      <NavigationContainer>
-        {launch ? (
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Onboarding"
-              component={OnboardingScreen}
-              options={{ headerShown: false }}
-            />
-          </Stack.Navigator>
-        ) : (
-          <Tab.Navigator>
-            <Tab.Screen
-              name="Stack"
-              component={StackNavigator}
-              options={{
-                headerShown: false,
-                tabBarIcon: makeIconRender("home"),
-              }}
-            />
-            <Tab.Screen
-              name="Camera"
-              component={CameraScreen}
-              options={{ tabBarIcon: makeIconRender("camera") }}
-            />
-            <Tab.Screen
-              name="Map"
-              component={MapScreen}
-              options={{ tabBarIcon: makeIconRender("map") }}
-            />
-            <Tab.Screen
-              name="Settings"
-              component={SettingsScreen}
-              options={{ tabBarIcon: makeIconRender("cog") }}
-            />
-          </Tab.Navigator>
-        )}
-      </NavigationContainer>
-    </ContextProvider>
+    <NavigationContainer>
+      {launch ? (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Onboarding"
+            component={OnboardingScreen}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      ) : (
+        <Tab.Navigator>
+          <Tab.Screen
+            name="Stack"
+            component={StackNavigator}
+            options={{
+              headerShown: false,
+              tabBarIcon: makeIconRender("home"),
+            }}
+          />
+          <Tab.Screen
+            name="Camera"
+            component={CameraScreen}
+            options={{ tabBarIcon: makeIconRender("camera") }}
+          />
+          <Tab.Screen
+            name="Map"
+            component={MapScreen}
+            options={{ tabBarIcon: makeIconRender("map") }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={SettingsScreen}
+            options={{ tabBarIcon: makeIconRender("cog") }}
+          />
+        </Tab.Navigator>
+      )}
+    </NavigationContainer>
   );
 }
