@@ -60,5 +60,8 @@ yarn-error.log
 # /ios/Pods/
 
 # Expo
-# .expo/*
+.expo/*
 # web-build/
+
+/bare/
+/mini/
