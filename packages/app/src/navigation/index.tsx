@@ -16,7 +16,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MyModal, StaticMap } from "../components";
 import { Context } from "../Context";
-import { OnboardingScreen } from "../screens";
+import { OnboardingScreen, WebViewScreen } from "../screens";
 
 function HomeScreen({ navigation }) {
   const { setLaunch } = useContext(Context);
@@ -32,6 +32,10 @@ function HomeScreen({ navigation }) {
       <Button
         onPress={() => navigation.navigate("Notifications")}
         title="Go to notifications"
+      />
+      <Button
+        onPress={() => navigation.navigate("WebView")}
+        title="Go to WebView"
       />
       <Button onPress={() => setLaunch(true)} title="Go to onboarding" />
       <MyModal />
@@ -255,6 +259,7 @@ function StackNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen name="WebView" component={WebViewScreen} />
     </Stack.Navigator>
   );
 }
